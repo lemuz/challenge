@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Built-By: alexl
 Build-Jdk: 15.0.2
 Implementation-Title: challenge
-Implementation-Version: 0.0.1-SNAPSHOT
+Implementation-Version: 0.0.2
 Implementation-Vendor-Id: com.equifax.dev
 Implementation-URL: https://projects.spring.io/spring-boot/#/spring-boot
  -starter-parent/challenge

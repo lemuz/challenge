@@ -1,5 +1,6 @@
 com\equifax\dev\model\dao\ProductoDaoImpl.class
 com\equifax\dev\ChallengeApplication.class
+com\equifax\dev\controller\IndexController.class
 com\equifax\dev\utils\DaoUtils.class
 com\equifax\dev\conf\DBConf.class
 com\equifax\dev\utils\XmlObjectQuery.class
@@ -9,4 +10,5 @@ com\equifax\dev\utils\XmlObject.class
 com\equifax\dev\utils\Constants.class
 com\equifax\dev\model\dao\ProductoDao.class
 com\equifax\dev\conf\SecurityConf.class
+com\equifax\dev\conf\MyWebConfig.class
 com\equifax\dev\model\entity\Producto.class
