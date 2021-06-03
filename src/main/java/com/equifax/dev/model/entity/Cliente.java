@@ -12,7 +12,7 @@ import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 @Entity(name="cliente")
-@Table(name="CLIENTES")
+@Table(name="CLIENTES",schema="SYSTEM")
 public class Cliente {
 
 	@Id
@@ -30,7 +30,7 @@ public class Cliente {
 	
 	@ManyToMany
     @JoinTable( 
-        name = "PRODUCTOS_CLIENTES", 
+        name = "SYSTEM.PRODUCTOS_CLIENTES", 
         joinColumns = @JoinColumn(
           name = "IdClientes", referencedColumnName = "IdCliente"), 
         inverseJoinColumns = @JoinColumn(

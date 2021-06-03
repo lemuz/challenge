@@ -20,12 +20,13 @@ public class GeneralDao {
         List<?> items = Collections.emptyList();
         try {
             Query<?> query = hibernateTemplate.getSessionFactory().getCurrentSession().createQuery(hqlQuery);
-            System.out.println(query);
             for(int i = 0; i<values.length; i++) {
                 query.setParameter(i+1, values[i]);
             }
+            //Query<?> query = hibernateTemplate.getSessionFactory().getCurrentSession().createQuery("select table_name from user_tables");
             System.out.println(query);
             items = query.list();
+            System.out.println(items);
         }
         catch (Exception e) {
             String message = "No se pudo ejecutar consulta";
