@@ -3,6 +3,7 @@ package com.equifax.dev.conf;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.jdbc.DataSourceBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
@@ -29,8 +30,16 @@ public class DBConf {
 	private String hibernateDialect;
 	@Value("${hibernate.show.sql}")
 	private String hibernateShowSql;
-	@Value("${hibernate.hbm2ddl.auto}")
+	@Value("${hibernate.generate-ddl}")
 	private boolean generatedDdl;
+	@Value("${hibernate.datasource.url}")
+	private String datasourceUrl;
+	@Value("${hibernate.datasource.username}")
+	private String username;
+	@Value("${hibernate.datasource.password}")
+	private String password;
+	@Value("${hibernate.datasource.driver-class-name}")
+	private String driver;
 
 	@Autowired
 	@Bean(name = "sessionFactory")
@@ -51,7 +60,6 @@ public class DBConf {
 		Properties properties = new Properties();
 		properties.put("hibernate.dialect", hibernateDialect);
 		properties.put("hibernate.show_sql", hibernateShowSql);
-		//properties.put("hibernate.hbm2ddl.auto", generatedDdl);
 		properties.put("hibernate.enable_lazy_load_no_trans", "true");
 		return properties;
 	}
@@ -62,4 +70,14 @@ public class DBConf {
 		HibernateTemplate hibernateTemplate = new HibernateTemplate(sessionFactory);
 		return hibernateTemplate;
 	}
+	
+	@Bean
+    public DataSource datasource() {
+        return DataSourceBuilder.create()
+          .driverClassName(driver)
+          .url(datasourceUrl)
+          .username(username)
+          .password(password)
+          .build();	
+    }
 }

@@ -3,8 +3,10 @@ com\equifax\dev\ChallengeApplication.class
 com\equifax\dev\utils\DaoUtils.class
 com\equifax\dev\conf\DBConf.class
 com\equifax\dev\utils\XmlObjectQuery.class
+com\equifax\dev\model\entity\Cliente.class
 com\equifax\dev\model\dao\GeneralDao.class
 com\equifax\dev\utils\XmlObject.class
 com\equifax\dev\utils\Constants.class
 com\equifax\dev\model\dao\ProductoDao.class
 com\equifax\dev\conf\SecurityConf.class
+com\equifax\dev\model\entity\Producto.class
