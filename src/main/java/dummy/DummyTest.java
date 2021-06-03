@@ -14,7 +14,7 @@ public class DummyTest {
 	private ProductoDaoImpl dao;
 	
 	public List<Object> test1(){
-		List<Object> lista = dao.findAllActiveProdByCliente(new Long(1));
+		List<Object> lista = dao.findAllActiveProdByCliente(Long.valueOf(1));
 		for(Object o: lista) {
 			System.out.println(o);
 		}
