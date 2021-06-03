@@ -1,11 +1,11 @@
 package com.equifax.dev.utils;
 
-//import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlTransient;
 import javax.xml.bind.annotation.XmlValue;
 
 public class XmlObjectQuery implements Comparable<XmlObjectQuery> {
-    @XmlValue
+    @XmlAttribute
     private String name;
     @XmlValue
     private String value;

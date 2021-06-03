@@ -22,11 +22,11 @@ import java.util.List;
 
 @Component
 public class DaoUtils extends Constants{
+	
+	@Autowired
+    ApplicationContext applicationContext;
 
     public static List<XmlObjectQuery> gstQueries = null;
-
-    @Autowired
-    ApplicationContext applicationContext;
 
     private List<XmlObjectQuery> loadQueries(String location) throws IOException {
         XmlObject object = null;
@@ -76,6 +76,7 @@ public class DaoUtils extends Constants{
             output = (XmlObject) unmarshaller.unmarshal(xsr);
         } catch (JAXBException e) {
             System.out.println("Error a XML: " + e.getMessage());
+            e.printStackTrace();
         } catch (XMLStreamException e) {
             e.printStackTrace();
         }

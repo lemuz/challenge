@@ -20,6 +20,7 @@ public class ProductoDaoImpl extends GeneralDao implements ProductoDao {
 			List<Object> list = (List<Object>) findByHQuery(hqlQuery, new Object[]{cliId, active});
 			return list;
 		} catch (Exception e) {
+			e.printStackTrace();
 			System.out.println(e.getMessage());
 		}
 		return Collections.EMPTY_LIST;
