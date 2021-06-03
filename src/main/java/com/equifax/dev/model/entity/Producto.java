@@ -11,13 +11,13 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
-@Entity
+@Entity(name="producto")
 @Table(name="PRODUCTOS")
 public class Producto {
 	
 	@Id
 	@Column(name="IdProducto")
-	private Integer idProducto;
+	private Long idProducto;
 	
 	@Column(name="NombreProducto")
 	private String nombreProducto;
@@ -32,17 +32,15 @@ public class Producto {
     @JoinTable( 
         name = "PRODUCTOS_CLIENTES", 
         joinColumns = @JoinColumn(
-          name = "IdProductos", referencedColumnName = "IdProductos"), 
+          name = "IdProductos", referencedColumnName = "IdProducto"), 
         inverseJoinColumns = @JoinColumn(
-          name = "IdClientes", referencedColumnName = "IdClientes")) 
+          name = "IdClientes", referencedColumnName = "IdCliente")) 
     private Set<Cliente> clientesProducto;
 
 	public Producto() {
-		super();
-		// TODO Auto-generated constructor stub
 	}
 
-	public Producto(Integer idProducto, String nombreProducto, Date fechaCreacion, Boolean estado,
+public Producto(Long idProducto, String nombreProducto, Date fechaCreacion, Boolean estado,
 			Set<Cliente> clientesProducto) {
 		super();
 		this.idProducto = idProducto;
@@ -52,11 +50,12 @@ public class Producto {
 		this.clientesProducto = clientesProducto;
 	}
 
-	public Integer getIdProducto() {
+	
+	public Long getIdProducto() {
 		return idProducto;
 	}
 
-	public void setIdProducto(Integer idProducto) {
+	public void setIdProducto(Long idProducto) {
 		this.idProducto = idProducto;
 	}
 
@@ -83,8 +82,7 @@ public class Producto {
 	public void setEstado(Boolean estado) {
 		this.estado = estado;
 	}
-
-	public Set<Cliente> getClientesProducto() {
+public Set<Cliente> getClientesProducto() {
 		return clientesProducto;
 	}
 
@@ -92,6 +90,7 @@ public class Producto {
 		this.clientesProducto = clientesProducto;
 	}
 
+	
 	@Override
 	public String toString() {
 		return "Producto [idProducto=" + idProducto + ", nombreProducto=" + nombreProducto + ", fechaCreacion="

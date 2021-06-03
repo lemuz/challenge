@@ -3,15 +3,15 @@
 	<query name="pdoCte.getAllActivesByCteId">
 		<![CDATA[
 				select
-					cte.cteNom, cte.cteId, cat.prodActivo, cat.prodCodigo
+					cte.idProducto, cte.nombreProducto, cte.fechaCreacion, cte.estado
 				from
-					producto cte, productoCliente cat, cliente cli
+					producto cte LEFT JOIN cte.clientesProducto cat, cliente cli
 				where
-					cat.clienteId = cli.clienteId
-					and cat.clienteId = ?
-					and cat.ctgProductoActivo = ?
+					cat.idCliente = cli.idCliente
+					and cat.idCliente = ?1
+					and cte.estado = ?2
 				order by
-					cat.ctgProductoNombre asc
+					nombreProducto asc
 		]]>
 	</query>
 </queries>

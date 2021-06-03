@@ -15,7 +15,7 @@ public class ProductoDaoImpl extends GeneralDao implements ProductoDao {
 	@SuppressWarnings("unchecked")
 	public List<Object> findAllActiveProdByCliente(Long cliId) {
 		String hqlQuery = eUtils.getQByName("pdoCte.getAllActivesByCteId");
-		String active = "1";
+		Boolean active = true;
 		try {
 			List<Object> list = (List<Object>) findByHQuery(hqlQuery, new Object[]{cliId, active});
 			return list;

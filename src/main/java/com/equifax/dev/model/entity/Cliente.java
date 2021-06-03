@@ -11,13 +11,13 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
-@Entity
+@Entity(name="cliente")
 @Table(name="CLIENTES")
 public class Cliente {
 
 	@Id
 	@Column(name="IdCliente")
-	private Integer idCliente;
+	private Long idCliente;
 	
 	@Column(name="NombreCliente")
 	private String nombreCliente;
@@ -32,16 +32,15 @@ public class Cliente {
     @JoinTable( 
         name = "PRODUCTOS_CLIENTES", 
         joinColumns = @JoinColumn(
-          name = "IdClientes", referencedColumnName = "IdClientes"), 
+          name = "IdClientes", referencedColumnName = "IdCliente"), 
         inverseJoinColumns = @JoinColumn(
-          name = "IdProductos", referencedColumnName = "IdProductos")) 
+          name = "IdProductos", referencedColumnName = "IdProducto")) 
     private Set<Producto> productosCliente;
 
 	public Cliente() {
-		super();
 	}
 
-	public Cliente(Integer idCliente, String nombreCliente, Date fechaCreacion, Boolean estado,
+	public Cliente(Long idCliente, String nombreCliente, Date fechaCreacion, Boolean estado,
 			Set<Producto> productosCliente) {
 		super();
 		this.idCliente = idCliente;
@@ -51,11 +50,11 @@ public class Cliente {
 		this.productosCliente = productosCliente;
 	}
 
-	public Integer getIdCliente() {
+	public Long getIdCliente() {
 		return idCliente;
 	}
 
-	public void setIdCliente(Integer idCliente) {
+	public void setIdCliente(Long idCliente) {
 		this.idCliente = idCliente;
 	}
 

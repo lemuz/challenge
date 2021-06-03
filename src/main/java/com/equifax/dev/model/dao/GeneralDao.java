@@ -20,9 +20,11 @@ public class GeneralDao {
         List<?> items = Collections.emptyList();
         try {
             Query<?> query = hibernateTemplate.getSessionFactory().getCurrentSession().createQuery(hqlQuery);
+            System.out.println(query);
             for(int i = 0; i<values.length; i++) {
-                query.setParameter(i, values[i]);
+                query.setParameter(i+1, values[i]);
             }
+            System.out.println(query);
             items = query.list();
         }
         catch (Exception e) {
