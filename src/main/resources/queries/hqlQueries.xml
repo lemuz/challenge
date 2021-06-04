@@ -5,7 +5,7 @@
 				select
 					cte.idProducto, cte.nombreProducto, cte.fechaCreacion, cte.estado
 				from
-					producto cte LEFT JOIN cte.clientesProducto cat LEFT JOIN cliente cli
+					producto cte LEFT JOIN cte.clientesProducto cat, cliente cli
 				where
 					cat.idCliente = cli.idCliente
 					and cat.idCliente = ?1
