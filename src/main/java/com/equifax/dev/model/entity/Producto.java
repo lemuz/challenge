@@ -30,7 +30,7 @@ public class Producto {
 	
 	@ManyToMany
     @JoinTable( 
-        name = "SYSTEM.PRODUCTOS_CLIENTES", 
+        name = "PRODUCTOS_CLIENTES",schema="SYSTEM", 
         joinColumns = @JoinColumn(
           name = "IdProductos", referencedColumnName = "IdProducto"), 
         inverseJoinColumns = @JoinColumn(

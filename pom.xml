@@ -13,7 +13,7 @@
 	<artifactId>challenge</artifactId>
 	<version>0.0.5</version>
 	<name>challenge</name>
-	<packaging>war</packaging>
+	<packaging>jar</packaging>
 	<description>Development challenge</description>
 
 	<properties>
@@ -61,6 +61,11 @@
 			<groupId>com.oracle.database.jdbc</groupId>
 			<artifactId>ojdbc8</artifactId>
 			<version>12.2.0.1</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.apache.tomcat.embed/tomcat-embed-core -->
+		<dependency>
+			<groupId>org.apache.tomcat.embed</groupId>
+			<artifactId>tomcat-embed-core</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>

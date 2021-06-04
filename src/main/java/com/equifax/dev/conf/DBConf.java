@@ -36,6 +36,10 @@ public class DBConf {
 	private String password;
 	@Value("${hibernate.datasource.driver-class-name}")
 	private String driver;
+	@Value("${hibernate.hbm2ddl.auto}")
+	private String hbm2ddl;
+	@Value("${hibernate.allow_update_outside_transaction}")
+	private boolean outsideTransaction;
 
 	@Autowired
 	@Bean(name = "sessionFactory")
@@ -56,6 +60,9 @@ public class DBConf {
 		Properties properties = new Properties();
 		properties.put("hibernate.dialect", hibernateDialect);
 		properties.put("hibernate.show_sql", hibernateShowSql);
+		properties.put("hibernate.hbm2ddl.auto", hbm2ddl);
+		properties.put("current_session_context_class", hibernateShowSql);
+		properties.put("hibernate.allow_update_outside_transaction", outsideTransaction);
 		properties.put("hibernate.enable_lazy_load_no_trans", "true");
 		return properties;
 	}
